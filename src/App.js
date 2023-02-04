@@ -2,6 +2,8 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import WeatherNav from './weatherNav';
 import WeatherAni from './WeatherAni';
+import {Table, Thead, Tbody, Tr, Th, Td} from 'react-super-responsive-table';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 
 function App() {
 
@@ -13,11 +15,11 @@ function App() {
     }
 
    useEffect(()=>{
-    
+     
        fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city='+city,{
     method: 'GET',
     headers: {
-    'X-RapidAPI-Key': '2d48ebed28mshd087b77993e8e37p12eb3ejsn2cd34e468b16',
+    'X-RapidAPI-Key': "2d48ebed28mshd087b77993e8e37p12eb3ejsn2cd34e468b16",
     'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
   }
     }).then((result)=>{
@@ -34,35 +36,38 @@ function App() {
     <WeatherAni />
 
     <h1>{city}</h1>
-<div style={{overflowX:"auto"}}>
-    <table>
-    <tbody>
-    <tr>
-    <th>Temperature</th>
-    <th>Min. Temp</th>
-    <th>Max.Temp</th>
-    <th>Humidity</th>
-    <th>Wind Speed</th>
-    <th>Wind Degree</th>
-    <th>Sunrise</th>
-    <th>Sunset</th>
-    </tr>
-    <tr>
-    <td>{data.temp}<span>&deg;C</span></td>
-    <td>{data.min_temp}<span>&deg;C</span></td>
-    <td>{data.max_temp}<span>&deg;C</span></td>
-    <td>{data.humidity}</td>
-    <td>{data.wind_speed}</td>
-    <td>{data.wind_degrees}</td>
-    <td>{data.sunrise}</td>
-    <td>{data.sunset}</td>
-    </tr>
-    </tbody>
-    </table>
-    </div>
+    <p className="tem">{data.temp}&deg;C</p>
+
+    <Table>
+    <Thead>
+    <Tr>
+    <Th>Temperature</Th>
+    <Th>Min. Temp</Th>
+    <Th>Max. Temp</Th>
+    <Th>Humidity</Th>
+    <Th>Wind Speed</Th>
+    <Th>Wind Degree</Th>
+    <Th>Sunrise</Th>
+    <Th>Sunset</Th>
+    </Tr>
+    </Thead>
+    <Tbody>
+    <Tr>
+    <Td>{data.temp}<span>&deg;C</span></Td>
+    <Td>{data.min_temp}<span>&deg;C</span></Td>
+    <Td>{data.max_temp}<span>&deg;C</span></Td>
+    <Td>{data.humidity}</Td>
+    <Td>{data.wind_speed}</Td>
+    <Td>{data.wind_degrees}</Td>
+    <Td>{data.sunrise}</Td>
+    <Td>{data.sunset}</Td>
+    </Tr>
+    </Tbody>
+    </Table>
+  
 
     <div className="footer">
-    <p>&copy; 2022 Copyright: All Rights Reserved</p>
+    <p>&copy; 2023 Copyright: All Rights Reserved</p>
     </div>
 </div>
   );
