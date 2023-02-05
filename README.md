@@ -1,6 +1,7 @@
 # Weather Live
 
-Live : [Weather Live](https://weatherlivebyvikas.netlify.app/)
+Live : [Weather Live](https://weatherlivebyvikas.netlify.app/).   
+ (Refresh the page in case if site does not working )
 
 In the project directory, you can run:
 
